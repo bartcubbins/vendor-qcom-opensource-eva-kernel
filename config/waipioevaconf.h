@@ -4,3 +4,4 @@
  */
 
 #define CONFIG_MSM_EVA 1
+#define CONFIG_EVA_WAIPIO 1
