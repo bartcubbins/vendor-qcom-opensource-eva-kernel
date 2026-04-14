@@ -923,7 +923,6 @@ static void __set_threshold_registers(struct iris_hfi_device *device)
 		dprintk(CVP_ERR, "Failed to restore threshold values\n");
 }
 
-#ifdef CONFIG_EVA_SUN
 static void __enter_cpu_noc_lpi(struct iris_hfi_device *device,
 				enum enter_noc_lpi_caller caller)
 {
@@ -1070,7 +1069,6 @@ static void __enter_video_ctl_noc_lpi(struct iris_hfi_device *device,
 		"%s - %d, CVP_VIDEO_CTL Noc is in LPI: lpi_status %x (count %d)\n",
 		__func__, caller, lpi_status, count);
 }
-#endif
 
 static int __unvote_buses(struct iris_hfi_device *device)
 {
