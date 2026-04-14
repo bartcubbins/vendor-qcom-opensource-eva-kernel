@@ -19,8 +19,8 @@
 // Since Chrome supports to parse the event “tracing_mark_write” by default
 // so we can re-use this to display your own events in Chrome
 // enable command as below:
-// adb shell "echo 1 > /sys/kernel/tracing/events/msm_cvp/tracing_mark_write/enable"
-TRACE_EVENT(tracing_mark_write,
+// adb shell "echo 1 > /sys/kernel/tracing/events/msm_cvp/tracing_mark_write_cvp/enable"
+TRACE_EVENT(tracing_mark_write_cvp,
 	TP_PROTO(int pid, const char *name, bool trace_begin),
 	TP_ARGS(pid, name, trace_begin),
 	TP_STRUCT__entry(
@@ -37,9 +37,9 @@ TRACE_EVENT(tracing_mark_write,
 		__entry->pid, __get_str(trace_name))
 )
 #define CVPKERNEL_ATRACE_END(name) \
-		trace_tracing_mark_write(current->tgid, name, 0)
+		trace_tracing_mark_write_cvp(current->tgid, name, 0)
 #define CVPKERNEL_ATRACE_BEGIN(name) \
-		trace_tracing_mark_write(current->tgid, name, 1)
+		trace_tracing_mark_write_cvp(current->tgid, name, 1)
 
 TRACE_EVENT(tracing_eva_frame_from_sw,
 	TP_PROTO(u64 aon_cycles, const char *name,
